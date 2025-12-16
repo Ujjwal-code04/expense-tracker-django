@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 style="text-align:center; margin:30px 0;">
+    Monthly Expense Trend
+</h2>
+
+<div style="width:75%; margin:0 auto;">
+    <canvas id="monthlyBarChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{{ labels|json_script:"m-labels" }}
+{{ values|json_script:"m-values" }}
+
+<script>
+const labels = JSON.parse(document.getElementById('m-labels').textContent);
+const values = JSON.parse(document.getElementById('m-values').textContent);
+
+new Chart(document.getElementById('monthlyBarChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Monthly Expense',
+            data: values
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+{% endblock %}
+

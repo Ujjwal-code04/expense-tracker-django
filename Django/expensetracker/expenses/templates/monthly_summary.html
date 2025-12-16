@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 style="text-align:center; margin:30px 0;">Monthly Expense Summary</h2>
+
+<table class="expense-table">
+    <tr>
+        <th>Month</th>
+        <th>Total Expense</th>
+    </tr>
+
+    {% for item in summary %}
+    <tr>
+        <td>{{ item.month|date:"F Y" }}</td>
+        <td>₹ {{ item.total }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">No data available</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

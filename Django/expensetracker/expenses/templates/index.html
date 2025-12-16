@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+       <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">ExpenseTracker</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Add Expense</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Expense Tracker</h1>
+        <p>Track your Income and Expenses easily!</p>
+
+        <div class="buttons">
+            <button class="primary-btn">Add Expenses</button>
+            <button class="secondary-btn">View Reports</button>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- COMMON NAVBAR -->
+    <nav class="navbar">
+    <div class="logo">ExpenseTracker</div>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'add_expense' %}">Add Expense</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+    </ul>
+</nav>
+
+
+    <!-- PAGE CONTENT -->
+    {% block content %}{% endblock %}
+
+</body>
+</html>

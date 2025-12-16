@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Expense Tracker</h1>
+    <p class="hero-subtitle">Track your Income and Expenses easily!</p>
+     <div class="btn-group">
+        <a href="{% url 'add_expense' %}" class="primary-btn">Add Expenses</a>
+        <a href="#" class="secondary-btn">View Reports</a>
+        <a href="{% url 'monthly_summary' %}" class="secondary-btn">Monthly Summary</a>
+        <a href="{% url 'category_monthly' %}" class="secondary-btn">
+        Category Monthly Report
+        </a>
+        <a href="{% url 'expense_chart' %}" class="secondary-btn">
+        View Charts
+        </a>
+        <a href="{% url 'expense_chart' %}" class="secondary-btn">Charts</a>
+        <a href="{% url 'monthly_chart' %}" class="secondary-btn">Monthly Chart</a>
+
+
+
+        
+    </div>
+    <h2 style="margin-top:30px;">All Expenses</h2>
+
+<table class="expense-table">
+    <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+
+    </tr>
+
+    {% for expense in expenses %}
+    <tr>
+        <td>{{ expense.title }}</td>
+        <td>₹ {{ expense.amount }}</td>
+        <td>{{ expense.category }}</td>
+        <td>{{ expense.date }}</td>
+        <td>
+        <a href="{% url 'delete_expense' expense.id %}"
+           onclick="return confirm('Are you sure you want to delete this expense?')"
+           style="color:red; font-weight:bold;">
+            Delete
+        </a>
+    </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No expenses added yet</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+   
+</div>
+{% endblock %}
