@@ -1,5 +1,10 @@
 # Expense Tracker – Django Web Application
 
+🚧 Project Status: Ongoing
+
+This project is currently under active development...
+
+
 ## 📌 Project Overview
 Expense Tracker is a Django-based web application that helps users track 
 their daily expenses efficiently. The application allows users to add, 
